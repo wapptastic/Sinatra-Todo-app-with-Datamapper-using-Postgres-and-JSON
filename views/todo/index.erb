@@ -1,0 +1,41 @@
+
+  
+  
+  <table class="table table-bordered">
+<div class="control-group">
+  <a href="/todos/new" class="btn btn-primary">Add todo item</a>
+</div>
+     <thead>
+        <tr>
+            <th>Id</th>
+            <th>Todo item</th>
+            <th>Created</th>
+            <th>Completed</th>
+            <th>Done</th>
+            <th>Actions</th>
+        </tr>
+     </thead>
+     <tbody>
+      <% @todos.each do |todo| %>
+        <tr>
+          <td><%= todo[:id] %></td>
+          <td><%= todo[:done] ? "<del>#{todo[:content]}</del>" : todo[:content] %></td>
+          <td><%= pretty_date(todo[:created_at]) %></td>
+          <td><%= pretty_date(todo[:completed_at]) %></td>
+          <td>
+            <% if todo[:done] %>
+              <span class="label label-success">Completed</span>
+            <% else %>
+              <span class="label label-warning">Pending</span>
+            <% end %>
+          </td>
+          <td><a href="/todos/edit/<%= todo[:id] %>" class="btn btn-primary">Edit</a>
+              <a href="/todos/delete/<%= todo[:id] %>" class="btn btn-danger">Delete</a>
+          </td>              
+        </tr>
+      <% end %>
+     </tbody>
+</table>
+
+  
+  

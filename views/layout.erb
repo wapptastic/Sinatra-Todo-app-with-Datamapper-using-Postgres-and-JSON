@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title><%= title %></title>
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
+   <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+   <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      #todo-list li {
+        border-bottom: 1px solid #333333;
+        padding: 15px 0;
+      }
+
+      
+   </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Todo list</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+             <%= styled_flash %>
+        </div>
+      <% end %>
+
+      
+      <%= yield %>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/general.js"></script>
+
+</body>
+</html>

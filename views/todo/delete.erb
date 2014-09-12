@@ -1,0 +1,7 @@
+<p>Are you sure you want to delete:</p>
+<blockquote><p><%= @todo.content %></p></blockquote>
+<form action="/todos/delete/<%= @todo.id %>" method="POST">
+	<input type="hidden" name="_method" value="delete" />
+  	<input type="submit" value="Delete" class="btn btn-primary"> or <a href="/">Cancel</a>
+</form>
+

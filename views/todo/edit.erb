@@ -1,0 +1,12 @@
+
+<h1>Edit Todo</h1>
+<form action="/todos/<%= @todo.id %>" method="post">
+  <input type="hidden" name="_method" value="put" />
+  <input type="text" class="input-xlarge" id="todo_content" placeholder="Todo item" name="content" value="<%= @todo.content %>">
+  
+  <input id="done" name="done" type="checkbox" value="true" <%= @todo.done ? "checked" : "" %>/>
+  <input type="submit" class="btn btn-primary" value="Edit Todo" />
+</form>
+
+
+<td></td>
